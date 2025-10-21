@@ -15,9 +15,10 @@ export const useHoldSmokeButton = ({
   const [progress, setProgress] = useState(0);
   const progressIntervalRef = useRef<number | null>(null);
   const hasCompletedRef = useRef(false);
+  const resetTimeoutRef = useRef<number | null>(null);
 
   const startHolding = () => {
-    if (isHolding) return;
+    if (isHolding || hasCompletedRef.current) return; // Also check if in completion state
 
     setIsHolding(true);
     setProgress(0);
@@ -58,17 +59,22 @@ export const useHoldSmokeButton = ({
     console.info("Tracked cigarette");
     onHoldComplete();
 
-    setTimeout(() => {
+    // Keep the completed state for visual feedback
+    resetTimeoutRef.current = window.setTimeout(() => {
       setIsHolding(false);
       setProgress(0);
       hasCompletedRef.current = false;
-    }, 3000);
+      resetTimeoutRef.current = null;
+    }, 3000); // Show completion for 3 seconds
   };
 
   useEffect(() => {
     return () => {
       if (progressIntervalRef.current) {
         clearInterval(progressIntervalRef.current);
+      }
+      if (resetTimeoutRef.current) {
+        clearTimeout(resetTimeoutRef.current);
       }
     };
   }, []);
