@@ -17,6 +17,8 @@ export const useHoldSmokeButton = ({
   const hasCompletedRef = useRef(false);
 
   const startHolding = () => {
+    if (isHolding) return;
+
     setIsHolding(true);
     setProgress(0);
     hasCompletedRef.current = false;
@@ -53,14 +55,13 @@ export const useHoldSmokeButton = ({
       progressIntervalRef.current = null;
     }
 
-    // Action completed - add your logic here
     console.info("Tracked cigarette");
     onHoldComplete();
 
-    // Reset after a brief moment
     setTimeout(() => {
       setIsHolding(false);
       setProgress(0);
+      hasCompletedRef.current = false;
     }, 3000);
   };
 
