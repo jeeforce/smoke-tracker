@@ -110,7 +110,6 @@ const mockData: ApexNonAxisChartSeries = [
 
 const mockOptions: ApexOptions = {
   chart: {
-    height: 350,
     type: "bar",
   },
   plotOptions: {
@@ -134,13 +133,12 @@ const mockOptions: ApexOptions = {
 
 export const HistoryGraph = () => {
   return (
-    <div id='chart' className='h-full w-full'>
-      <ReactApexChart
-        options={mockOptions}
-        series={mockData}
-        type='bar'
-        height='100%'
-      />
-    </div>
+    <ReactApexChart
+      options={mockOptions}
+      series={mockData}
+      type='bar'
+      height='100%'
+      width='100%'
+    />
   );
 };

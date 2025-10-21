@@ -16,19 +16,19 @@ export const App = () => {
         <div className='grid grid-cols-1 gap-4 md:gap-6 h-full w-full'>
           <div className='lg:col-span-2 h-full overflow-y-auto'>
             <PageWrapper>
-              <div className='flex flex-col items-center mb-8 md:mb-10'>
+              <div className='flex flex-col items-center mb-6 md:mb-8 shrink-0'>
                 <SmokeButton />
                 <p className='text-center text-gray-700 text-xs md:text-sm font-medium mt-4 tracking-wide uppercase opacity-70'>
                   Hold to track
                 </p>
               </div>
 
-              <div className='grid grid-cols-2 gap-4 md:gap-6 mb-8 md:mb-10 shrink-0'>
+              <div className='grid grid-cols-2 gap-4 md:gap-6 mb-6 md:mb-8 shrink-0'>
                 <StatCard value={7} label='Cigarettes Today' />
                 <StatCard value={1} label='Quit Progress' />
               </div>
 
-              <Card className='grow flex flex-col min-h-0'>
+              <Card className='flex-1 flex flex-col '>
                 <div className='shrink-0'>
                   <h2 className='text-lg md:text-xl font-semibold text-gray-900 mb-4 md:mb-6'>
                     Stats
@@ -57,7 +57,7 @@ export const App = () => {
                     </Button>
                   </div>
                 </div>
-                <div className='grow min-h-0 overflow-hidden'>
+                <div className='flex-1 min-h-0 overflow-hidden'>
                   <HistoryGraph />
                 </div>
               </Card>
