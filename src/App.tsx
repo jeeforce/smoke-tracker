@@ -5,14 +5,14 @@ import HistoryIconSvg from "./assets/history-icon.svg";
 
 export const App = () => {
   return (
-    <div className='h-screen w-screen bg-gray-300 overflow-hidden'>
+    <div className='h-dvh w-screen bg-gray-300 overflow-hidden'>
       <header className='flex items-center justify-between px-4 md:px-6 py-3 md:py-4 h-16 md:h-20 shrink-0'>
         <h1 className='text-xl md:text-2xl font-semibold text-gray-900'>
           Smoker Tracker
         </h1>
       </header>
 
-      <div className='h-[calc(100vh-4rem)] md:h-[calc(100vh-5rem)] w-full px-4 md:px-6 py-4'>
+      <div className='h-[calc(100dvh-4rem)] md:h-[calc(100dvh-5rem)] w-full px-4 md:px-6 py-4'>
         <div className='grid grid-cols-1 gap-4 md:gap-6 h-full w-full'>
           <div className='lg:col-span-2 h-full overflow-y-auto'>
             <PageWrapper>
