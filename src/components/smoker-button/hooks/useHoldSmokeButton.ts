@@ -6,10 +6,14 @@ type Props = {
   holdInterval?: number;
 };
 
+const HOLD_DURATION_DEFAULT = 2000; // 2 seconds
+const HOLD_INTERVAL_DEFAULT = 16; // ~60 FPS
+const COMPLETION_DISPLAY_DURATION = 3000; // 3 seconds
+
 export const useHoldSmokeButton = ({
   onHoldComplete,
-  holdDuration = 2000,
-  holdInterval = 16,
+  holdDuration = HOLD_DURATION_DEFAULT,
+  holdInterval = HOLD_INTERVAL_DEFAULT,
 }: Props) => {
   const [isHolding, setIsHolding] = useState(false);
   const [progress, setProgress] = useState(0);
@@ -65,7 +69,7 @@ export const useHoldSmokeButton = ({
       setProgress(0);
       hasCompletedRef.current = false;
       resetTimeoutRef.current = null;
-    }, 3000); // Show completion for 3 seconds
+    }, COMPLETION_DISPLAY_DURATION); // Show completion for 3 seconds
   };
 
   useEffect(() => {
