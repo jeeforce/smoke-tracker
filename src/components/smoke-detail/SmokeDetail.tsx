@@ -1,5 +1,11 @@
 import { HistoryGraph } from "../HistoryGraph";
-import { Card, StatCard, LoadingSpinner, ErrorMessage } from "../../ui";
+import {
+  Card,
+  StatCard,
+  LoadingSpinner,
+  ErrorMessage,
+  EmptyData,
+} from "../../ui";
 import { useSmokeDetail } from "../../hooks/use-smoke-detail/useSmokeDetail";
 import { useState } from "react";
 import { DateFilters } from "../../hooks/use-smoke-detail/constant";
@@ -18,6 +24,7 @@ export const SmokeDetail = () => {
   const {
     isLoading,
     error,
+    hasData,
     getFilteredDataByFilter,
     getDaysSinceLastSmoke,
     getSmokeReductionStat,
@@ -38,6 +45,12 @@ export const SmokeDetail = () => {
           }
         />
       );
+    case !hasData:
+      return (
+        <Card className='h-full'>
+          <EmptyData />
+        </Card>
+      );
     default: {
       const todaySmokeCount = getFilteredDataByFilter("1D").length;
       const daysSinceLastSmoke = getDaysSinceLastSmoke();
@@ -49,7 +62,7 @@ export const SmokeDetail = () => {
               Stats
             </h2>
 
-            <div className='grid grid-cols-2 gap-4 md:gap-6 mb-6 md:mb-8'>
+            <div className='grid grid-cols-2 md:grid-cols-4  gap-4 md:gap-6 mb-6 md:mb-8'>
               <StatCard value={todaySmokeCount} label='Cigarettes Today' />
               <StatCard value={daysSinceLastSmoke} label='Days Smoke-Free' />
               {smokeReductionStat ? (

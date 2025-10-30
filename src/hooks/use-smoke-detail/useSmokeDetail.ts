@@ -40,6 +40,7 @@ export const useSmokeDetail = () => {
   return {
     isLoading,
     error,
+    hasData: !!data?.length,
     getFilteredDataByFilter,
     getDaysSinceLastSmoke,
     getSmokeReductionStat,
