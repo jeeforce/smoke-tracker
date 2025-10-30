@@ -1,9 +1,12 @@
-import { CircularProgress } from "../CircularProgress";
+import type { FC } from "react";
+import { CircularProgress } from "../../ui/CircularProgress";
 import { useHoldSmokeButton } from "./hooks/useHoldSmokeButton";
+import { useTrackSmoke } from "../../hooks";
 
-export const SmokeButton = () => {
+export const SmokeButton: FC = () => {
+  const { trackSmoke } = useTrackSmoke();
   const { isHolding, progress, startHolding, stopHolding } = useHoldSmokeButton(
-    { onHoldComplete: () => {} }
+    { onHoldComplete: trackSmoke }
   );
   return (
     <div className='relative select-none'>

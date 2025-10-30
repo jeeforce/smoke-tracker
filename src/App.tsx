@@ -1,8 +1,6 @@
-import { HistoryGraph } from "./components/HistoryGraph";
-import { SmokeButton } from "./components/smoker-button/SmokeButton";
-import { Card, StatCard, Button } from "./components/ui";
-import HistoryIconSvg from "./assets/history-icon.svg";
-import { MainSection } from "./components/ui/MainSection";
+import { SmokeDetail } from "./components/smoke-detail/SmokeDetail";
+import { SmokeButton } from "./components/smoke-button/SmokeButton";
+import { MainSection } from "./ui/MainSection";
 
 export const App = () => {
   return (
@@ -21,45 +19,8 @@ export const App = () => {
           </p>
         </div>
       </MainSection>
-
       <MainSection className='flex-1 flex flex-col min-h-0'>
-        <div className='overflow-y-auto flex-1 [scrollbar-gutter:stable]'>
-          <div className='grid grid-cols-2 gap-4 md:gap-6 mb-6 md:mb-8 shrink-0'>
-            <StatCard value={7} label='Cigarettes Today' />
-            <StatCard value={1} label='Quit Progress' />
-          </div>
-
-          <Card className='flex-1 flex flex-col '>
-            <div className='shrink-0'>
-              <h2 className='text-lg md:text-xl font-semibold text-gray-900 mb-4 md:mb-6'>
-                Stats
-              </h2>
-
-              <Button className='mb-4 md:mb-6'>Track</Button>
-              <div className='text-4xl md:text-5xl font-bold text-gray-900 mb-1'>
-                7
-              </div>
-              <div className='text-sm md:text-base text-gray-700 mb-6 md:mb-8'>
-                Cigarettes Smoked This Week
-              </div>
-
-              <div className='flex items-center justify-between flex-wrap gap-4 mb-6'>
-                <Button>History</Button>
-                <Button variant='secondary' className='flex items-center gap-1'>
-                  <img
-                    src={HistoryIconSvg}
-                    alt=''
-                    className='w-4 h-4 md:w-5 md:h-5'
-                  />
-                  View Past
-                </Button>
-              </div>
-            </div>
-            <div className='flex-1 min-h-0 overflow-hidden'>
-              <HistoryGraph />
-            </div>
-          </Card>
-        </div>
+        <SmokeDetail />
       </MainSection>
     </div>
   );
