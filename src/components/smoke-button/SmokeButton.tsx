@@ -23,10 +23,7 @@ export const SmokeButton: FC = () => {
           WebkitUserSelect: "none",
         }}
       >
-        {/* Circular Progress SVG */}
         <CircularProgress progress={progress} radius={70} />
-
-        {/* Emoji Icon */}
         <span
           className='text-4xl md:text-5xl lg:text-6xl z-10 transition-transform select-none'
           style={{
