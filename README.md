@@ -1,73 +1,103 @@
-# React + TypeScript + Vite
+# 🚬 Smoker Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A Progressive Web App (PWA) to help you track and monitor your smoking habits. Built with React, TypeScript, and Tailwind CSS.
 
-Currently, two official plugins are available:
+🌐 **[Live Demo](http://smoke-tracker.capwong.dev/)**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![Smoker Tracker](https://img.shields.io/badge/PWA-Enabled-blue)
+![React](https://img.shields.io/badge/React-19-61dafb)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-3178c6)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind-4-38bdf8)
 
-## React Compiler
+## ✨ Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- 📊 **Track Smoking Habits** - Hold-to-track button for easy logging
+- 📈 **Visual Statistics** - Interactive charts with time-based filtering (1D, 1W, 1M, 1Y, All)
+- 📱 **PWA Support** - Install on mobile devices (iOS & Android)
+- 🎨 **Responsive Design** - Works seamlessly on desktop and mobile
+- 🔄 **Real-time Updates** - Instant data synchronization
 
-## Expanding the ESLint configuration
+## 🚀 Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Prerequisites
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- Node.js 18+ and npm
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Installation
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+1. Clone the repository:
+
+```bash
+git clone https://github.com/jeeforce/smoke-tracker.git
+cd smoke-tracker
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. Install dependencies:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
 ```
+
+3. Start the development server:
+
+```bash
+npm run dev
+```
+
+4. Open [http://localhost:5173](http://localhost:5173) in your browser
+
+## 📱 PWA Installation
+
+### iOS (Safari)
+
+1. Tap the Share button (square with arrow)
+2. Scroll down and tap "Add to Home Screen"
+3. Tap "Add"
+
+### Android (Chrome)
+
+1. Tap the menu (three dots)
+2. Tap "Install app" or "Add to Home Screen"
+
+### Desktop (Chrome/Edge)
+
+1. Click the install button in the address bar
+2. Or use the "Install App" button in the header
+
+## 🛠️ Tech Stack
+
+- **Framework**: React 19 + TypeScript
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS
+- **Charts**: ApexCharts
+- **Icons**: Lucide React
+- **Date Handling**: date-fns
+- **PWA**: Vite PWA Plugin
+- **API**: React Query
+
+## 📁 Project Structure
+
+```
+src/
+├── components/            # Custom components
+├── query/                 # React Query hooks for API calls
+├── hooks/                 # Custom React hooks
+├── ui/                    # Reusable UI components
+└── App.tsx
+
+```
+
+## 🎯 Usage
+
+1. **Track a Smoke**: Press and hold the circular button until the progress completes
+2. **View Statistics**: Scroll down to see your smoking stats
+3. **Filter History**: Use the dropdown to filter by time period (1D, 1W, 1M, 1Y, All)
+4. **Install as App**: Click the "Install App" button for native-like experience
+
+## 🏗️ Build for Production
+
+```bash
+npm run build
+```
+
+The production-ready files will be in the `dist/` directory.
