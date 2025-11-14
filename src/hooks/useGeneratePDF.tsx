@@ -1,8 +1,6 @@
 import { useState } from "react";
-import { pdf } from "@react-pdf/renderer";
 import type { SmokeData } from "../schema/SmokeData.schema";
 import { calculatePDFStatistics } from "../utils/pdfStatistics";
-import { PDFReportDocument } from "../components/PDFReportDocument";
 
 type UseGeneratePDFReturn = {
   generatePDF: () => Promise<void>;
@@ -25,6 +23,12 @@ export const useGeneratePDF = (
       if (!statistics) {
         throw new Error("No data available to generate report");
       }
+
+      // Lazy load the PDF library only when needed
+      const [{ pdf }, { PDFReportDocument }] = await Promise.all([
+        import("@react-pdf/renderer"),
+        import("../components/PDFReportDocument"),
+      ]);
 
       const blob = await pdf(
         <PDFReportDocument statistics={statistics} />
