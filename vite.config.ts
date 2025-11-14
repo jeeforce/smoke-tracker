@@ -5,6 +5,19 @@ import { VitePWA } from "vite-plugin-pwa";
 
 // https://vite.dev/config/
 export default defineConfig({
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          "react-vendor": ["react", "react-dom"],
+          charts: ["apexcharts", "react-apexcharts"],
+          "react-query": ["@tanstack/react-query"],
+          "date-utils": ["date-fns"],
+          icons: ["lucide-react"],
+        },
+      },
+    },
+  },
   plugins: [
     react(),
     tailwindcss(),
