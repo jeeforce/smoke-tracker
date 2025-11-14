@@ -38,6 +38,7 @@ export const useSmokeDetail = () => {
   };
 
   return {
+    data,
     isLoading,
     error,
     hasData: !!data?.length,

@@ -26,7 +26,7 @@ export const PWAInstallButton = () => {
         aria-label='Install app'
       >
         <Download className='w-5 h-5' />
-        <span className='hidden sm:inline'>Install App</span>
+        <span>Install App</span>
       </button>
 
       <IOSInstallModal
